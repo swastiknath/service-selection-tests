@@ -4,7 +4,7 @@
 set -e
 
 # Configuration
-PROJECT_ID=${PROJECT_ID:-"your-gcp-project-id"}
+PROJECT_ID=${PROJECT_ID:-"##############"}
 REGION=${REGION:-"us-central1"}
 CLUSTER_NAME=${CLUSTER_NAME:-"microservice-selector-cluster"}
 REGISTRY=${REGISTRY:-"gcr.io/${PROJECT_ID}"}
