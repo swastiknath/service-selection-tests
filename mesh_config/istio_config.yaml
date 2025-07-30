@@ -1,0 +1,153 @@
+# Istio Configuration
+# VirtualService for load balancer
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: algorithm-load-balancer-vs
+  namespace: algorithm-test
+spec:
+  hosts:
+    - algorithm-load-balancer
+  http:
+    - match:
+        - uri:
+            prefix: "/api"
+      route:
+        - destination:
+            host: algorithm-load-balancer
+            port:
+              number: 8080
+      timeout: 30s
+      retries:
+        attempts: 3
+        perTryTimeout: 10s
+---
+# DestinationRule for load balancer
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: algorithm-load-balancer-dr
+  namespace: algorithm-test
+spec:
+  host: algorithm-load-balancer
+  trafficPolicy:
+    circuitBreaker:
+      consecutiveGatewayErrors: 5
+      consecutive5xxErrors: 5
+      interval: 10s
+      baseEjectionTime: 30s
+      maxEjectionPercent: 50
+    connectionPool:
+      tcp:
+        maxConnections: 100
+      http:
+        http1MaxPendingRequests: 50
+        maxRequestsPerConnection: 10
+    loadBalancer:
+      simple: LEAST_CONN
+---
+# VirtualService for test services
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: test-services-vs
+  namespace: algorithm-test
+spec:
+  hosts:
+    - test-service-1
+    - test-service-2
+  http:
+    - match:
+        - headers:
+            algorithm:
+              exact: fuzzy
+      route:
+        - destination:
+            host: test-service-1
+          weight: 60
+        - destination:
+            host: test-service-2
+          weight: 40
+    - match:
+        - headers:
+            algorithm:
+              exact: stochastic
+      route:
+        - destination:
+            host: test-service-1
+          weight: 30
+        - destination:
+            host: test-service-2
+          weight: 70
+    - route:
+        - destination:
+            host: test-service-1
+          weight: 50
+        - destination:
+            host: test-service-2
+          weight: 50
+---
+# DestinationRule for test services
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: test-services-dr
+  namespace: algorithm-test
+spec:
+  host: "*.algorithm-test.svc.cluster.local"
+  trafficPolicy:
+    circuitBreaker:
+      consecutiveGatewayErrors: 3
+      consecutive5xxErrors: 3
+      interval: 30s
+      baseEjectionTime: 30s
+    connectionPool:
+      tcp:
+        maxConnections: 50
+      http:
+        http1MaxPendingRequests: 25
+        maxRequestsPerConnection: 5
+  exportTo:
+    - "."
+---
+# Istio Gateway for external access
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: algorithm-test-gateway
+  namespace: algorithm-test
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - algorithm-test.local
+        
+# Enabling PeerAuthentication for mTLS
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: default
+  namespace: algorithm-test
+spec:
+  mtls:
+    mode: STRICT
+---
+# AuthorizationPolicy for access control
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: algorithm-test-authz
+  namespace: algorithm-test
+spec:
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/algorithm-test/sa/algorithm-test-sa"]
+  - to:
+    - operation:
+        methods: ["GET", "POST"]

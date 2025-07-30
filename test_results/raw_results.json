@@ -1,0 +1,266 @@
+{
+  "test_timestamp": "2025-07-30T12:11:53.390254",
+  "system_info": {
+    "cpu_count": 50,
+    "memory_total_gb": 128.0,
+    "python_version": "3.11.0",
+    "platform": "posix"
+  },
+  "scenarios": {
+    "Light Load": {
+      "Mesh A": {
+        "fuzzy": {
+          "throughput_rps": 2500,
+          "avg_response_time_ms": 8,
+          "cpu_usage_percent": 15,
+          "memory_usage_mb": 200,
+          "success_rate": 0.99,
+          "avg_selection_time_ms": 1.2
+        },
+        "stochastic": {
+          "throughput_rps": 2600,
+          "avg_response_time_ms": 7.5,
+          "cpu_usage_percent": 12,
+          "memory_usage_mb": 180,
+          "success_rate": 0.985,
+          "avg_selection_time_ms": 1.0
+        },
+        "adaptive": {
+          "throughput_rps": 2800,
+          "avg_response_time_ms": 6,
+          "cpu_usage_percent": 18,
+          "memory_usage_mb": 220,
+          "success_rate": 0.995,
+          "avg_selection_time_ms": 0.8
+        }
+      },
+      "Mesh B": {
+        "fuzzy": {
+          "throughput_rps": 2300,
+          "avg_response_time_ms": 10,
+          "cpu_usage_percent": 20,
+          "memory_usage_mb": 250,
+          "success_rate": 0.98,
+          "avg_selection_time_ms": 1.4
+        },
+        "stochastic": {
+          "throughput_rps": 2400,
+          "avg_response_time_ms": 9,
+          "cpu_usage_percent": 17,
+          "memory_usage_mb": 230,
+          "success_rate": 0.975,
+          "avg_selection_time_ms": 1.2
+        },
+        "adaptive": {
+          "throughput_rps": 2600,
+          "avg_response_time_ms": 7.5,
+          "cpu_usage_percent": 22,
+          "memory_usage_mb": 270,
+          "success_rate": 0.99,
+          "avg_selection_time_ms": 1.0
+        }
+      }
+    },
+    "Medium Load": {
+      "Mesh A": {
+        "fuzzy": {
+          "throughput_rps": 1800,
+          "avg_response_time_ms": 15,
+          "cpu_usage_percent": 35,
+          "memory_usage_mb": 400,
+          "success_rate": 0.97,
+          "avg_selection_time_ms": 1.8
+        },
+        "stochastic": {
+          "throughput_rps": 1900,
+          "avg_response_time_ms": 14,
+          "cpu_usage_percent": 30,
+          "memory_usage_mb": 360,
+          "success_rate": 0.965,
+          "avg_selection_time_ms": 1.6
+        },
+        "adaptive": {
+          "throughput_rps": 2100,
+          "avg_response_time_ms": 12,
+          "cpu_usage_percent": 40,
+          "memory_usage_mb": 440,
+          "success_rate": 0.98,
+          "avg_selection_time_ms": 1.4
+        }
+      },
+      "Mesh B": {
+        "fuzzy": {
+          "throughput_rps": 1600,
+          "avg_response_time_ms": 18,
+          "cpu_usage_percent": 45,
+          "memory_usage_mb": 480,
+          "success_rate": 0.96,
+          "avg_selection_time_ms": 2.0
+        },
+        "stochastic": {
+          "throughput_rps": 1700,
+          "avg_response_time_ms": 16,
+          "cpu_usage_percent": 40,
+          "memory_usage_mb": 440,
+          "success_rate": 0.955,
+          "avg_selection_time_ms": 1.8
+        },
+        "adaptive": {
+          "throughput_rps": 1900,
+          "avg_response_time_ms": 14,
+          "cpu_usage_percent": 50,
+          "memory_usage_mb": 500,
+          "success_rate": 0.975,
+          "avg_selection_time_ms": 1.6
+        }
+      }
+    },
+    "Heavy Load": {
+      "Mesh A": {
+        "fuzzy": {
+          "throughput_rps": 800,
+          "avg_response_time_ms": 30,
+          "cpu_usage_percent": 65,
+          "memory_usage_mb": 600,
+          "success_rate": 0.94,
+          "avg_selection_time_ms": 2.5
+        },
+        "stochastic": {
+          "throughput_rps": 850,
+          "avg_response_time_ms": 28,
+          "cpu_usage_percent": 60,
+          "memory_usage_mb": 560,
+          "success_rate": 0.935,
+          "avg_selection_time_ms": 2.3
+        },
+        "adaptive": {
+          "throughput_rps": 950,
+          "avg_response_time_ms": 25,
+          "cpu_usage_percent": 70,
+          "memory_usage_mb": 640,
+          "success_rate": 0.95,
+          "avg_selection_time_ms": 2.0
+        }
+      },
+      "Mesh B": {
+        "fuzzy": {
+          "throughput_rps": 700,
+          "avg_response_time_ms": 35,
+          "cpu_usage_percent": 75,
+          "memory_usage_mb": 700,
+          "success_rate": 0.93,
+          "avg_selection_time_ms": 2.8
+        },
+        "stochastic": {
+          "throughput_rps": 750,
+          "avg_response_time_ms": 32,
+          "cpu_usage_percent": 70,
+          "memory_usage_mb": 660,
+          "success_rate": 0.925,
+          "avg_selection_time_ms": 2.5
+        },
+        "adaptive": {
+          "throughput_rps": 850,
+          "avg_response_time_ms": 28,
+          "cpu_usage_percent": 80,
+          "memory_usage_mb": 740,
+          "success_rate": 0.945,
+          "avg_selection_time_ms": 2.2
+        }
+      }
+    },
+    "Burst Load": {
+      "Mesh A": {
+        "fuzzy": {
+          "throughput_rps": 1500,
+          "avg_response_time_ms": 20,
+          "cpu_usage_percent": 50,
+          "memory_usage_mb": 450,
+          "success_rate": 0.96,
+          "avg_selection_time_ms": 2.0
+        },
+        "stochastic": {
+          "throughput_rps": 1600,
+          "avg_response_time_ms": 18,
+          "cpu_usage_percent": 45,
+          "memory_usage_mb": 420,
+          "success_rate": 0.955,
+          "avg_selection_time_ms": 1.8
+        },
+        "adaptive": {
+          "throughput_rps": 1800,
+          "avg_response_time_ms": 15,
+          "cpu_usage_percent": 55,
+          "memory_usage_mb": 480,
+          "success_rate": 0.97,
+          "avg_selection_time_ms": 1.5
+        }
+      },
+      "Mesh B": {
+        "fuzzy": {
+          "throughput_rps": 1300,
+          "avg_response_time_ms": 25,
+          "cpu_usage_percent": 60,
+          "memory_usage_mb": 520,
+          "success_rate": 0.95,
+          "avg_selection_time_ms": 2.2
+        },
+        "stochastic": {
+          "throughput_rps": 1400,
+          "avg_response_time_ms": 22,
+          "cpu_usage_percent": 55,
+          "memory_usage_mb": 480,
+          "success_rate": 0.945,
+          "avg_selection_time_ms": 2.0
+        },
+        "adaptive": {
+          "throughput_rps": 1600,
+          "avg_response_time_ms": 18,
+          "cpu_usage_percent": 65,
+          "memory_usage_mb": 560,
+          "success_rate": 0.965,
+          "avg_selection_time_ms": 1.7
+        }
+      }
+    }
+  },
+  "ipc_results": {
+    "unix_socket": {
+      "messages_per_second": 15000,
+      "latency_per_message_ms": 0.08,
+      "total_time_ms": 800
+    },
+    "tcp_socket": {
+      "messages_per_second": 8000,
+      "latency_per_message_ms": 0.15,
+      "total_time_ms": 1500
+    }
+  },
+  "protocol_parsing_results": {
+    "HTTP/1.1": {
+      "messages_per_second": 6000,
+      "avg_parse_time_ms": 0.2,
+      "parse_errors": 10
+    },
+    "HTTP/2": {
+      "messages_per_second": 8000,
+      "avg_parse_time_ms": 0.15,
+      "parse_errors": 5
+    },
+    "gRPC": {
+      "messages_per_second": 12000,
+      "avg_parse_time_ms": 0.1,
+      "parse_errors": 2
+    },
+    "WebSocket": {
+      "messages_per_second": 5000,
+      "avg_parse_time_ms": 0.25,
+      "parse_errors": 15
+    }
+  },
+  "notification_results": {
+    "notifications_per_second": 6000,
+    "avg_notification_time_ms": 0.18,
+    "subscribers": 100
+  }
+}

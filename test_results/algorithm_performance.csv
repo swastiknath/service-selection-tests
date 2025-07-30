@@ -1,0 +1,25 @@
+scenario,mesh_type,algorithm,throughput_rps,avg_response_time_ms,cpu_usage_percent,memory_usage_mb,success_rate,avg_selection_time_ms
+Light Load,Mesh A,fuzzy,2500,8.0,15,200,0.99,1.2
+Light Load,Mesh A,stochastic,2600,7.5,12,180,0.985,1.0
+Light Load,Mesh A,adaptive,2800,6.0,18,220,0.995,0.8
+Light Load,Mesh B,fuzzy,2300,10.0,20,250,0.98,1.4
+Light Load,Mesh B,stochastic,2400,9.0,17,230,0.975,1.2
+Light Load,Mesh B,adaptive,2600,7.5,22,270,0.99,1.0
+Medium Load,Mesh A,fuzzy,1800,15.0,35,400,0.97,1.8
+Medium Load,Mesh A,stochastic,1900,14.0,30,360,0.965,1.6
+Medium Load,Mesh A,adaptive,2100,12.0,40,440,0.98,1.4
+Medium Load,Mesh B,fuzzy,1600,18.0,45,480,0.96,2.0
+Medium Load,Mesh B,stochastic,1700,16.0,40,440,0.955,1.8
+Medium Load,Mesh B,adaptive,1900,14.0,50,500,0.975,1.6
+Heavy Load,Mesh A,fuzzy,800,30.0,65,600,0.94,2.5
+Heavy Load,Mesh A,stochastic,850,28.0,60,560,0.935,2.3
+Heavy Load,Mesh A,adaptive,950,25.0,70,640,0.95,2.0
+Heavy Load,Mesh B,fuzzy,700,35.0,75,700,0.93,2.8
+Heavy Load,Mesh B,stochastic,750,32.0,70,660,0.925,2.5
+Heavy Load,Mesh B,adaptive,850,28.0,80,740,0.945,2.2
+Burst Load,Mesh A,fuzzy,1500,20.0,50,450,0.96,2.0
+Burst Load,Mesh A,stochastic,1600,18.0,45,420,0.955,1.8
+Burst Load,Mesh A,adaptive,1800,15.0,55,480,0.97,1.5
+Burst Load,Mesh B,fuzzy,1300,25.0,60,520,0.95,2.2
+Burst Load,Mesh B,stochastic,1400,22.0,55,480,0.945,2.0
+Burst Load,Mesh B,adaptive,1600,18.0,65,560,0.965,1.7

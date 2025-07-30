@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: algorithm-test
+  labels:
+    istio-injection: enabled
+    linkerd.io/inject: enabled

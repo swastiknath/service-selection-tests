@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: algorithm-load-balancer
+  namespace: algorithm-test
+  labels:
+    app: algorithm-load-balancer
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: algorithm-load-balancer
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: algorithm-load-balancer
+        version: v1
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: algorithm-test-sa
+      containers:
+        - name: load-balancer
+          image: python:3.9-slim
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 9090
+              name: metrics
+          env:
+            - name: MESH_TYPE
+              value: "istio"
+            - name: LOG_LEVEL
+              value: "INFO"
+            - name: PROMETHEUS_PORT
+              value: "9090"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5

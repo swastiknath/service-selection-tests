@@ -1,0 +1,12 @@
+apiVersion: split.smi-spec.io/v1alpha1
+kind: TrafficSplit
+metadata:
+  name: test-service-split
+  namespace: algorithm-test
+spec:
+  service: test-service-1
+  backends:
+    - service: test-service-1
+      weight: 70
+    - service: test-service-2
+      weight: 30

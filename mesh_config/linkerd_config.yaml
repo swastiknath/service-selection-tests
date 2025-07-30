@@ -1,0 +1,18 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: test-service-2.algorithm-test.svc.cluster.local
+  namespace: algorithm-test
+spec:
+  routes:
+    - name: default
+      condition:
+        method: GET
+        pathRegex: "/.*"
+      responseClasses:
+        - condition:
+            status:
+              min: 200
+              max: 299
+          isFailure: false
+      timeout: 30s

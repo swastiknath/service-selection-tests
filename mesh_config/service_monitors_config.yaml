@@ -1,0 +1,94 @@
+# Prometheus ServiceMonitor for metrics collection
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: algorithm-test-metrics
+  namespace: algorithm-test
+  labels:
+    app: algorithm-test
+spec:
+  selector:
+    matchLabels:
+      app: algorithm-load-balancer
+  endpoints:
+  - port: metrics
+    interval: 15s
+    path: /metrics
+
+
+# Grafana Dashboard ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: algorithm-test-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  algorithm-performance.json: |
+    {
+      "dashboard": {
+        "id": null,
+        "title": "Microservice Algorithm Performance",
+        "tags": ["microservice", "load-balancing"],
+        "style": "dark",
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "Algorithm Selection Time",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "algorithm_selection_time_seconds",
+                "legendFormat": "{{algorithm}} - {{instance}}"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Time (seconds)",
+                "min": 0
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Request Throughput",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "rate(algorithm_requests_total[5m])",
+                "legendFormat": "{{algorithm}} - RPS"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Success Rate",
+            "type": "singlestat",
+            "targets": [
+              {
+                "expr": "rate(algorithm_requests_success_total[5m]) / rate(algorithm_requests_total[5m]) * 100",
+                "legendFormat": "Success Rate %"
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "CPU Usage by Algorithm",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "algorithm_cpu_usage_percent",
+                "legendFormat": "{{algorithm}} CPU %"
+              }
+            ]
+          }
+        ],
+        "time": {
+          "from": "now-1h",
+          "to": "now"
+        },
+        "refresh": "5s"
+      }
+    }

@@ -1,0 +1,105 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: algorithm-load-balancer-pdb
+  namespace: algorithm-test
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: algorithm-load-balancer
+
+# Job for running performance tests
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: algorithm-performance-test
+  namespace: algorithm-test
+spec:
+  parallelism: 1
+  completions: 1
+  backoffLimit: 3
+  template:
+    metadata:
+      labels:
+        app: performance-test
+    spec:
+      restartPolicy: Never
+      serviceAccountName: algorithm-test-sa
+      containers:
+      - name: test-runner
+        image: python:3.9-slim
+        command: ["python", "/app/test_suite.py"]
+        env:
+        - name: KUBERNETES_NAMESPACE
+          value: "algorithm-test"
+        - name: TEST_DURATION
+          value: "300"
+        - name: CONCURRENT_REQUESTS
+          value: "100"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: test-results
+          mountPath: /app/results
+      volumes:
+      - name: test-results
+        emptyDir: {}
+
+# CronJob for scheduled performance testing
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: algorithm-performance-test-cron
+  namespace: algorithm-test
+spec:
+  schedule: "0 */6 * * *"  # Every 6 hours
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          serviceAccountName: algorithm-test-sa
+          containers:
+          - name: test-runner
+            image: python:3.9-slim
+            command: ["python", "/app/test_suite.py", "--mode", "automated"]
+            env:
+            - name: KUBERNETES_NAMESPACE
+              value: "algorithm-test"
+            - name: SLACK_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: notification-secrets
+                  key: slack-webhook
+            resources:
+              requests:
+                memory: "256Mi"
+                cpu: "200m"
+              limits:
+                memory: "512Mi"
+                cpu: "500m"
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+          readOnly: true
+      volumes:
+      - name: config-volume
+        configMap:
+          name: algorithm-config
