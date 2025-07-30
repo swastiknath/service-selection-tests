@@ -1,7 +1,7 @@
 {
   "test_timestamp": "2025-07-30T12:11:53.390254",
   "system_info": {
-    "cpu_count": 50,
+    "cpu_count": 14,
     "memory_total_gb": 128.0,
     "python_version": "3.11.0",
     "platform": "posix"
