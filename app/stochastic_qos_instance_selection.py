@@ -374,16 +374,4 @@ class StochasticOperator:
         except ApiException as e:
             logger.error(f"Error collecting metrics: {e}")
     
-    async def _simulate_metrics_collection(self, pod) -> Dict:
-        """Simulate metrics collection (replace with real metrics in production)"""
-        import random
-        
-        # Add some temporal correlation and trends
-        base_time = time.time()
-        time_factor = (base_time % 3600) / 3600  # Hourly cycle
-        
-        return {
-            'response_time': max(10, 100 + 50 * np.sin(time_factor * 2 * np.pi) + random.gauss(0, 10)),
-            'throughput': max(1, 500 + 200 * np.cos(time_factor * 2 * np.pi) + random.gauss(0, 50)),
-            'availability': min(100, 95 + 4 * np.cos(time_factor * 4 * np))
-        }
+    

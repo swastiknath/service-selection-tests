@@ -1,0 +1,5 @@
+protocol,messages_per_second,avg_parse_time_ms,parse_errors
+HTTP,23866.03,0.0844,5
+gRPC,32438.93,0.06,4
+TCP,54456.73,0.0339,0
+WebSocket,15367.25,0.1343,6

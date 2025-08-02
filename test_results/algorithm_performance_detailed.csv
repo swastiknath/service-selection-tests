@@ -1,0 +1,121 @@
+scenario,mesh,algorithm,throughput_rps,avg_response_time_ms,cpu_usage_percent,memory_usage_mb,success_rate,avg_selection_time_ms,p95_response_time_ms,p99_response_time_ms
+low_load_morning,no_mesh,Fuzzy Preference Relations,538.06,40.71,30.72,224.01,0.997298,2.31,73.28,97.71
+low_load_morning,no_mesh,Stochastic Quality of Service parameters,547.4,46.69,24.4,197.36,0.995603,1.63,84.04,112.05
+low_load_morning,no_mesh,Adaptive Context-based instance selection,587.15,30.16,21.87,190.26,0.9999,2.48,54.29,72.39
+low_load_morning,istio,Fuzzy Preference Relations,422.32,41.95,46.11,243.21,0.993726,2.62,75.51,100.68
+low_load_morning,istio,Stochastic Quality of Service parameters,409.05,52.85,29.32,248.62,0.996125,1.61,95.13,126.84
+low_load_morning,istio,Adaptive Context-based instance selection,482.48,58.38,39.74,230.75,0.995337,3.91,105.08,140.11
+low_load_morning,linkerd,Fuzzy Preference Relations,494.58,35.46,26.46,227.96,0.998514,2.73,63.84,85.11
+low_load_morning,linkerd,Stochastic Quality of Service parameters,452.61,46.15,24.11,199.78,0.9999,1.63,83.07,110.76
+low_load_morning,linkerd,Adaptive Context-based instance selection,556.32,34.57,36.5,222.91,0.9999,2.86,62.23,82.97
+low_load_morning,consul_connect,Fuzzy Preference Relations,509.77,53.39,30.59,229.83,0.9999,2.58,96.1,128.14
+low_load_morning,consul_connect,Stochastic Quality of Service parameters,425.31,48.49,27.37,201.06,0.9999,2.11,87.27,116.36
+low_load_morning,consul_connect,Adaptive Context-based instance selection,521.14,50.88,38.88,230.09,0.9999,3.59,91.59,122.12
+low_load_afternoon,no_mesh,Fuzzy Preference Relations,596.29,45.89,19.04,227.91,0.997103,2.34,82.61,110.15
+low_load_afternoon,no_mesh,Stochastic Quality of Service parameters,565.72,30.38,28.43,210.04,0.995445,2.37,54.69,72.92
+low_load_afternoon,no_mesh,Adaptive Context-based instance selection,622.55,34.34,37.58,225.58,0.9999,2.97,61.81,82.42
+low_load_afternoon,istio,Fuzzy Preference Relations,530.33,52.62,37.88,260.74,0.993609,2.3,94.72,126.29
+low_load_afternoon,istio,Stochastic Quality of Service parameters,505.92,50.2,39.72,253.49,0.995738,1.37,90.37,120.49
+low_load_afternoon,istio,Adaptive Context-based instance selection,569.67,40.29,43.52,290.85,0.999524,4.7,72.52,96.69
+low_load_afternoon,linkerd,Fuzzy Preference Relations,573.7,42.89,26.35,241.55,0.9999,2.41,77.2,102.94
+low_load_afternoon,linkerd,Stochastic Quality of Service parameters,519.78,46.31,34.51,205.96,0.999256,2.3,83.35,111.13
+low_load_afternoon,linkerd,Adaptive Context-based instance selection,665.26,36.46,47.19,215.95,0.9999,3.87,65.63,87.5
+low_load_afternoon,consul_connect,Fuzzy Preference Relations,501.06,41.78,39.79,244.0,0.998206,1.74,75.2,100.26
+low_load_afternoon,consul_connect,Stochastic Quality of Service parameters,467.62,48.91,31.68,285.76,0.996034,1.56,88.05,117.39
+low_load_afternoon,consul_connect,Adaptive Context-based instance selection,645.12,36.13,42.71,301.28,0.999554,2.31,65.03,86.7
+medium_load_business,no_mesh,Fuzzy Preference Relations,1408.69,85.54,50.17,299.97,0.998857,2.9,153.97,205.29
+medium_load_business,no_mesh,Stochastic Quality of Service parameters,1321.97,84.11,51.86,340.53,0.994485,2.13,151.39,201.86
+medium_load_business,no_mesh,Adaptive Context-based instance selection,1765.27,78.15,53.3,381.93,0.9999,2.85,140.68,187.57
+medium_load_business,istio,Fuzzy Preference Relations,1326.96,86.01,95.18,460.63,0.994655,3.61,154.82,206.42
+medium_load_business,istio,Stochastic Quality of Service parameters,1118.09,89.6,67.56,391.23,0.994511,2.11,161.29,215.05
+medium_load_business,istio,Adaptive Context-based instance selection,1381.6,99.17,87.79,525.43,0.999603,3.82,178.51,238.02
+medium_load_business,linkerd,Fuzzy Preference Relations,1362.13,78.58,61.01,416.62,0.99794,2.62,141.44,188.58
+medium_load_business,linkerd,Stochastic Quality of Service parameters,1264.36,89.65,59.49,324.74,0.997671,1.89,161.37,215.16
+medium_load_business,linkerd,Adaptive Context-based instance selection,1468.57,70.44,78.57,428.04,0.993747,3.21,126.8,169.06
+medium_load_business,consul_connect,Fuzzy Preference Relations,1261.65,78.27,81.13,445.28,0.994935,3.59,140.89,187.85
+medium_load_business,consul_connect,Stochastic Quality of Service parameters,1049.38,83.13,77.76,426.88,0.9999,2.45,149.63,199.51
+medium_load_business,consul_connect,Adaptive Context-based instance selection,1461.6,97.47,92.73,465.73,0.99273,3.84,175.45,233.93
+medium_load_evening,no_mesh,Fuzzy Preference Relations,1057.32,64.36,49.85,310.32,0.992398,3.84,115.84,154.46
+medium_load_evening,no_mesh,Stochastic Quality of Service parameters,1116.51,55.16,46.83,328.68,0.993767,2.0,99.29,132.39
+medium_load_evening,no_mesh,Adaptive Context-based instance selection,1182.62,67.75,50.43,326.11,0.996958,3.54,121.95,162.6
+medium_load_evening,istio,Fuzzy Preference Relations,1161.86,86.96,50.53,401.33,0.9999,2.28,156.53,208.7
+medium_load_evening,istio,Stochastic Quality of Service parameters,872.34,82.3,73.19,412.24,0.991358,1.66,148.14,197.52
+medium_load_evening,istio,Adaptive Context-based instance selection,1061.93,70.43,96.71,425.12,0.992411,3.09,126.77,169.03
+medium_load_evening,linkerd,Fuzzy Preference Relations,1239.23,83.38,48.98,336.83,0.995877,3.28,150.08,200.11
+medium_load_evening,linkerd,Stochastic Quality of Service parameters,1030.22,83.73,51.2,338.83,0.993686,0.71,150.71,200.95
+medium_load_evening,linkerd,Adaptive Context-based instance selection,1155.31,59.65,83.2,314.58,0.992752,3.62,107.37,143.16
+medium_load_evening,consul_connect,Fuzzy Preference Relations,1143.82,63.6,78.92,375.9,0.993601,2.35,114.48,152.64
+medium_load_evening,consul_connect,Stochastic Quality of Service parameters,978.48,73.63,63.66,347.67,0.996254,2.16,132.53,176.71
+medium_load_evening,consul_connect,Adaptive Context-based instance selection,1286.34,61.87,93.45,313.41,0.992074,3.98,111.36,148.49
+high_load_peak,no_mesh,Fuzzy Preference Relations,2469.29,106.41,84.63,492.84,0.993622,2.64,191.53,255.38
+high_load_peak,no_mesh,Stochastic Quality of Service parameters,2332.78,108.88,92.95,514.54,0.990299,2.72,195.98,261.3
+high_load_peak,no_mesh,Adaptive Context-based instance selection,2509.73,101.44,98.0,570.41,0.988881,4.11,182.59,243.46
+high_load_peak,istio,Fuzzy Preference Relations,2342.42,130.34,98.0,650.14,0.985773,2.96,234.61,312.82
+high_load_peak,istio,Stochastic Quality of Service parameters,2127.63,159.02,98.0,640.32,0.979626,2.68,286.23,381.64
+high_load_peak,istio,Adaptive Context-based instance selection,2426.78,130.6,98.0,729.08,0.990065,3.45,235.09,313.45
+high_load_peak,linkerd,Fuzzy Preference Relations,2087.4,110.03,98.0,643.36,0.985687,3.48,198.06,264.08
+high_load_peak,linkerd,Stochastic Quality of Service parameters,2129.83,118.68,97.74,535.21,0.987011,2.82,213.62,284.83
+high_load_peak,linkerd,Adaptive Context-based instance selection,2359.86,117.1,98.0,583.39,0.986664,3.45,210.78,281.05
+high_load_peak,consul_connect,Fuzzy Preference Relations,2240.72,125.28,98.0,647.12,0.983481,2.2,225.51,300.68
+high_load_peak,consul_connect,Stochastic Quality of Service parameters,1945.26,134.22,98.0,698.88,0.98509,2.76,241.6,322.13
+high_load_peak,consul_connect,Adaptive Context-based instance selection,2442.36,110.97,98.0,636.94,0.983572,4.4,199.75,266.34
+high_load_sustained,no_mesh,Fuzzy Preference Relations,2215.89,125.26,79.32,499.91,0.990931,3.34,225.47,300.62
+high_load_sustained,no_mesh,Stochastic Quality of Service parameters,2033.82,109.42,76.71,427.03,0.993152,2.22,196.95,262.6
+high_load_sustained,no_mesh,Adaptive Context-based instance selection,2642.9,111.57,98.0,460.16,0.98707,4.85,200.82,267.76
+high_load_sustained,istio,Fuzzy Preference Relations,2200.18,116.56,95.15,578.3,0.987392,1.78,209.8,279.73
+high_load_sustained,istio,Stochastic Quality of Service parameters,1651.46,135.69,98.0,703.53,0.983811,2.81,244.24,325.66
+high_load_sustained,istio,Adaptive Context-based instance selection,1934.07,129.27,91.98,754.79,0.989196,5.05,232.68,310.24
+high_load_sustained,linkerd,Fuzzy Preference Relations,1725.77,137.75,93.52,621.1,0.987498,2.1,247.95,330.59
+high_load_sustained,linkerd,Stochastic Quality of Service parameters,1878.91,123.05,83.19,565.37,0.989936,1.78,221.49,295.32
+high_load_sustained,linkerd,Adaptive Context-based instance selection,2247.34,118.97,98.0,508.7,0.990642,2.86,214.15,285.54
+high_load_sustained,consul_connect,Fuzzy Preference Relations,1987.49,111.7,98.0,593.11,0.983352,3.83,201.07,268.09
+high_load_sustained,consul_connect,Stochastic Quality of Service parameters,2117.92,153.42,90.97,619.47,0.992912,2.63,276.16,368.22
+high_load_sustained,consul_connect,Adaptive Context-based instance selection,1988.54,125.61,98.0,501.11,0.97827,3.15,226.1,301.47
+spike_flash_sale,no_mesh,Fuzzy Preference Relations,1631.56,164.87,98.0,565.76,0.980529,4.11,296.77,395.69
+spike_flash_sale,no_mesh,Stochastic Quality of Service parameters,1352.6,155.71,94.39,539.03,0.987854,1.38,280.27,373.69
+spike_flash_sale,no_mesh,Adaptive Context-based instance selection,1662.31,155.09,98.0,527.66,0.984659,3.71,279.15,372.21
+spike_flash_sale,istio,Fuzzy Preference Relations,1460.04,206.42,98.0,755.08,0.983718,2.77,371.56,495.41
+spike_flash_sale,istio,Stochastic Quality of Service parameters,1366.28,167.48,98.0,609.3,0.98501,3.29,301.46,401.95
+spike_flash_sale,istio,Adaptive Context-based instance selection,1541.85,179.63,98.0,729.0,0.984648,4.64,323.33,431.11
+spike_flash_sale,linkerd,Fuzzy Preference Relations,1500.93,158.27,98.0,497.17,0.99056,2.16,284.88,379.84
+spike_flash_sale,linkerd,Stochastic Quality of Service parameters,1665.76,170.31,98.0,641.28,0.987474,3.81,306.56,408.75
+spike_flash_sale,linkerd,Adaptive Context-based instance selection,1726.79,142.34,89.83,683.39,0.986766,3.44,256.21,341.62
+spike_flash_sale,consul_connect,Fuzzy Preference Relations,1438.93,153.23,98.0,745.56,0.982617,3.09,275.82,367.76
+spike_flash_sale,consul_connect,Stochastic Quality of Service parameters,1433.88,163.04,98.0,695.33,0.979019,1.87,293.47,391.29
+spike_flash_sale,consul_connect,Adaptive Context-based instance selection,1570.65,138.89,98.0,846.2,0.98213,2.97,250.0,333.33
+spike_ddos_mitigation,no_mesh,Fuzzy Preference Relations,970.23,160.25,93.88,572.28,0.98673,3.12,288.45,384.6
+spike_ddos_mitigation,no_mesh,Stochastic Quality of Service parameters,982.0,174.69,93.14,548.46,0.990639,2.07,314.44,419.26
+spike_ddos_mitigation,no_mesh,Adaptive Context-based instance selection,1184.85,142.07,98.0,698.41,0.988595,2.75,255.73,340.97
+spike_ddos_mitigation,istio,Fuzzy Preference Relations,852.94,221.86,98.0,657.08,0.983509,2.09,399.35,532.47
+spike_ddos_mitigation,istio,Stochastic Quality of Service parameters,863.43,191.15,98.0,643.81,0.974787,2.33,344.06,458.75
+spike_ddos_mitigation,istio,Adaptive Context-based instance selection,950.22,197.48,98.0,799.51,0.981741,4.96,355.46,473.94
+spike_ddos_mitigation,linkerd,Fuzzy Preference Relations,1026.41,164.78,98.0,824.2,0.979359,1.57,296.61,395.48
+spike_ddos_mitigation,linkerd,Stochastic Quality of Service parameters,945.24,192.04,98.0,651.78,0.982466,2.4,345.68,460.91
+spike_ddos_mitigation,linkerd,Adaptive Context-based instance selection,1170.89,185.77,98.0,716.27,0.980785,3.73,334.38,445.84
+spike_ddos_mitigation,consul_connect,Fuzzy Preference Relations,960.78,187.46,98.0,922.81,0.980142,3.64,337.42,449.9
+spike_ddos_mitigation,consul_connect,Stochastic Quality of Service parameters,958.75,193.89,83.83,661.72,0.989179,1.42,349.0,465.33
+spike_ddos_mitigation,consul_connect,Adaptive Context-based instance selection,1038.2,224.26,98.0,775.15,0.973896,4.82,403.67,538.23
+gradual_rampup,no_mesh,Fuzzy Preference Relations,995.93,68.35,36.61,318.93,0.996754,2.65,123.02,164.03
+gradual_rampup,no_mesh,Stochastic Quality of Service parameters,964.47,82.2,45.3,282.44,0.99445,1.78,147.96,197.29
+gradual_rampup,no_mesh,Adaptive Context-based instance selection,1160.27,53.08,50.09,282.62,0.9999,3.84,95.55,127.4
+gradual_rampup,istio,Fuzzy Preference Relations,931.6,71.65,60.93,330.48,0.996945,2.5,128.97,171.96
+gradual_rampup,istio,Stochastic Quality of Service parameters,856.76,70.09,67.3,400.59,0.99917,2.32,126.16,168.22
+gradual_rampup,istio,Adaptive Context-based instance selection,898.17,61.4,49.05,436.74,0.998833,3.94,110.51,147.35
+gradual_rampup,linkerd,Fuzzy Preference Relations,939.43,60.6,75.87,333.38,0.995003,2.96,109.09,145.45
+gradual_rampup,linkerd,Stochastic Quality of Service parameters,896.13,74.3,45.87,331.88,0.9999,2.71,133.73,178.31
+gradual_rampup,linkerd,Adaptive Context-based instance selection,1153.07,62.19,49.8,337.03,0.9999,3.54,111.95,149.27
+gradual_rampup,consul_connect,Fuzzy Preference Relations,769.09,85.89,57.41,334.26,0.991554,2.16,154.6,206.13
+gradual_rampup,consul_connect,Stochastic Quality of Service parameters,890.39,75.6,44.46,292.69,0.9999,1.82,136.07,181.43
+gradual_rampup,consul_connect,Adaptive Context-based instance selection,969.52,56.25,59.67,352.22,0.996904,1.67,101.24,134.99
+weekend_light,no_mesh,Fuzzy Preference Relations,361.2,37.88,25.75,174.24,0.99468,2.24,68.19,90.91
+weekend_light,no_mesh,Stochastic Quality of Service parameters,416.75,36.36,18.94,150.44,0.996567,1.82,65.44,87.26
+weekend_light,no_mesh,Adaptive Context-based instance selection,390.8,30.89,21.14,153.57,0.999319,2.65,55.6,74.14
+weekend_light,istio,Fuzzy Preference Relations,317.23,50.35,16.39,222.33,0.99178,2.84,90.63,120.84
+weekend_light,istio,Stochastic Quality of Service parameters,295.79,42.08,20.13,178.01,0.9999,1.37,75.74,100.99
+weekend_light,istio,Adaptive Context-based instance selection,387.43,46.49,31.78,184.4,0.9999,2.9,83.68,111.57
+weekend_light,linkerd,Fuzzy Preference Relations,312.1,42.51,22.93,173.34,0.999333,2.67,76.51,102.01
+weekend_light,linkerd,Stochastic Quality of Service parameters,315.48,46.06,18.69,184.1,0.996071,1.96,82.9,110.54
+weekend_light,linkerd,Adaptive Context-based instance selection,395.07,31.47,28.54,183.31,0.9999,2.87,56.64,75.52
+weekend_light,consul_connect,Fuzzy Preference Relations,316.01,33.7,19.32,202.63,0.9999,1.71,60.66,80.88
+weekend_light,consul_connect,Stochastic Quality of Service parameters,262.12,50.4,24.37,182.2,0.998197,1.6,90.72,120.96
+weekend_light,consul_connect,Adaptive Context-based instance selection,371.61,43.43,27.0,201.11,0.998829,2.95,78.17,104.22

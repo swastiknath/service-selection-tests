@@ -1,0 +1,127 @@
+=== GKE ALGORITHM PERFORMANCE ANALYSIS REPORT ===
+
+1. OVERALL PERFORMANCE SUMMARY
+========================================
+
+Fuzzy:
+  Average Throughput: 1154.5 RPS
+  Average Response Time: 95.3 ms
+  Average CPU Usage: 65.3%
+  Average Memory Usage: 432.5 MB
+  Average Success Rate: 0.9919
+  Average Selection Time: 2.70 ms
+
+Stochastic QoS:
+  Average Throughput: 1083.2 RPS
+  Average Response Time: 98.5 ms
+  Average CPU Usage: 62.8%
+  Average Memory Usage: 410.3 MB
+  Average Success Rate: 0.9926
+  Average Selection Time: 2.10 ms
+
+Adaptive Context:
+  Average Throughput: 1263.4 RPS
+  Average Response Time: 90.6 ms
+  Average CPU Usage: 70.4%
+  Average Memory Usage: 443.5 MB
+  Average Success Rate: 0.9926
+  Average Selection Time: 3.53 ms
+
+
+2. BEST ALGORITHM BY SCENARIO
+========================================
+
+Low Load Morning:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.767
+  Throughput: 587.1 RPS
+  Response Time: 30.2 ms
+
+Low Load Afternoon:
+  Best Algorithm: Fuzzy
+  Composite Score: 0.736
+  Throughput: 573.7 RPS
+  Response Time: 42.9 ms
+
+Medium Load Business:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.733
+  Throughput: 1765.3 RPS
+  Response Time: 78.2 ms
+
+Medium Load Evening:
+  Best Algorithm: Fuzzy
+  Composite Score: 0.667
+  Throughput: 1161.9 RPS
+  Response Time: 87.0 ms
+
+High Load Peak:
+  Best Algorithm: Fuzzy
+  Composite Score: 0.614
+  Throughput: 2469.3 RPS
+  Response Time: 106.4 ms
+
+High Load Sustained:
+  Best Algorithm: Stochastic QoS
+  Composite Score: 0.584
+  Throughput: 2033.8 RPS
+  Response Time: 109.4 ms
+
+Spike Flash Sale:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.408
+  Throughput: 1726.8 RPS
+  Response Time: 142.3 ms
+
+Spike Ddos Mitigation:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.344
+  Throughput: 1184.8 RPS
+  Response Time: 142.1 ms
+
+Gradual Rampup:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.712
+  Throughput: 1160.3 RPS
+  Response Time: 53.1 ms
+
+Weekend Light:
+  Best Algorithm: Adaptive Context
+  Composite Score: 0.742
+  Throughput: 390.8 RPS
+  Response Time: 30.9 ms
+
+
+3. SERVICE MESH IMPACT ANALYSIS
+========================================
+
+Istio:
+  Throughput Impact: -11.5%
+  Latency Impact: +20.5%
+  CPU Overhead: +20.0%
+
+Linkerd:
+  Throughput Impact: -6.2%
+  Latency Impact: +6.8%
+  CPU Overhead: +11.3%
+
+Consul Connect:
+  Throughput Impact: -9.7%
+  Latency Impact: +12.3%
+  CPU Overhead: +18.0%
+
+
+4. RECOMMENDATIONS
+========================================
+
+Overall Best Performer: Adaptive Context
+This algorithm provides the best balance across all scenarios and metrics.
+
+Best for High Load Scenarios: Adaptive Context
+Recommended for peak traffic and high-demand situations.
+
+Best for Low Latency: Adaptive Context
+Recommended when response time is critical.
+
+Most CPU Efficient: Stochastic QoS
+Recommended for resource-constrained environments.

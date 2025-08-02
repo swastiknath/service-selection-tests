@@ -1,0 +1,4 @@
+ipc_type,messages_per_second,latency_per_message_ms,total_time_ms
+shared_memory,49115.6035,0.0313,185.9772
+message_queue,12394.6113,0.1723,839.2207
+socket,8209.217,0.2972,1184.4156
